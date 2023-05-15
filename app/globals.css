@@ -1,27 +1,77 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600");
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--inter: "Inter", sans-serif;
+	--black: black;
+	--white: white;
+	--grey: #DADADA;
+	--redOrange: #F83C10;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+	font-family: "MarkPro-Medium";
+	src: url("./assets/fonts/MarkPro-Medium.ttf");
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+	font-family: "MarkPro-Bold";
+	src: url("./assets/fonts/MarkPro-Bold.ttf");
+}
+
+.fontMarkProMed {
+	font-family: "MarkPro-Medium", sans-serif;
+}
+
+.fontMarkProBold {
+	font-family: "MarkPro-Bold", sans-serif;
+}
+
+.fontInterReg {
+	font-family: var(--inter);
+	font-weight: 400;
+}
+
+.fontInterMed {
+	font-family: var(--inter);
+	font-weight: 500;
+}
+
+.fontInterSB {
+	font-family: var(--inter);
+	font-weight: 600;
+}
+
+.colorBlack {
+	color: var(--black);
+}
+
+.colorWhite {
+	color: var(--white);
+}
+
+.colorGrey {
+	color: var(--grey);
+}
+
+.colorRedOrange {
+	color: var(--redOrange);
+}
+
+.bgBlack {
+	background-color: var(--black);
+}
+
+.bgWhite {
+	background-color: var(--white);
+}
+
+.bgGrey {
+	background-color: var(--grey);
+}
+
+.bgRedOrange {
+	background-color: var(--redOrange);
 }
