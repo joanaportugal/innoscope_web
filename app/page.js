@@ -26,8 +26,8 @@ function Home() {
       api.post("/users/login", { name: user.displayName, email: user.email })
         .then(res => {
           localStorage.setItem("userToken", res.data.token);
+          localStorage.setItem("userName", user.displayName);
           router.push("/home");
-          //router.refresh();
         })
         .catch(({ response }) => {
           if (response.data.errors) {
