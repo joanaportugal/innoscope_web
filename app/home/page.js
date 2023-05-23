@@ -44,20 +44,20 @@ function Home() {
 				<section className="mx-10">
 					<h2 className="text-3xl mb-4 fontMarkProMed">My Ideas</h2>
 					<div className="flex flex-col md:flex-row">
-						<BoxContainer header="Total" text={userIdeas.length} />
-						<BoxContainer header="New ideas" text={0} />
-						<BoxContainer header="On voting" text={0} />
-						<BoxContainer header="On progress" text={0} />
+						<BoxContainer header="Total" number={userIdeas.length} />
+						<BoxContainer header="New ideas" number={userIdeas.filter(idea => idea.idea_status === "New").length} />
+						<BoxContainer header="On voting" number={userIdeas.filter(idea => idea.idea_status === "On Voting").length} />
+						<BoxContainer header="On going" number={userIdeas.filter(idea => idea.idea_status === "On Going").length} />
 					</div>
 				</section>
 
 				<section className="mx-10">
 					<h2 className="text-3xl mb-4 fontMarkProMed">My Tasks</h2>
 					<div className="flex flex-col md:flex-row">
-						<BoxContainer header="Total" text={userTasks.length} />
-						<BoxContainer header="To do" text={0} />
-						<BoxContainer header="On going" text={0} />
-						<BoxContainer header="Done" text={0} />
+						<BoxContainer header="Total" number={userTasks.length} />
+						<BoxContainer header="To do" number={userTasks.filter(task => task.task_status === "To Do").length} />
+						<BoxContainer header="On going" number={userTasks.filter(task => task.task_status === "Doing").length} />
+						<BoxContainer header="Done" number={userTasks.filter(task => task.task_status === "Done").length} />
 					</div>
 				</section>
 			</main>

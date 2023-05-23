@@ -11,7 +11,7 @@ import api from "@/app/services/api";
 import "react-toastify/dist/ReactToastify.css";
 
 function AddIdea() {
-	const complexityList = [{ value: "Easy", label: "Easy" }, { value: "Medium", label: "Medium" }, { value: "Hard", label: "Hard" }];
+	const complexityList = ["Easy", "Medium", "Hard"].map(item => ({ value: item, label: item }));
 	const animatedComponents = makeAnimated();
 
 	const [loading, setLoading] = useState(true);
@@ -73,7 +73,7 @@ function AddIdea() {
 		if (ideaCoauthors.length !== 0) item.coauthors = ideaCoauthors;
 		if (ideaDetails) item.details = ideaDetails;
 
-		setLoading(true)
+		setLoading(true);
 		api.post("/users/me/ideas", item, { headers: { Authorization: `Bearer ${localStorage.getItem("userToken")}` } })
 			.then(res => toast(res.data.message, { hideProgressBar: true, autoClose: 5000, type: "success", position: toast.POSITION.BOTTOM_LEFT }))
 			.catch(({ response }) => {
@@ -179,7 +179,7 @@ function AddIdea() {
 						</section>
 
 						<div className="flex justify-end w-full">
-							<button className="w-10/12 md:w-2/12 bgRedOrange colorWhite fontInter text-xl text-left px-2 py-1 mx-8"
+							<button className="w-11/12 md:w-2/12 bgRedOrange colorWhite fontInter text-xl text-left px-2 py-1 md:mx-8"
 								onClick={(e) => {
 									e.preventDefault();
 									sendIdea();
